@@ -4,7 +4,8 @@
 
 body {
     margin: 0;
-    background-color: bisque;
+    background-color: rgb(247, 240, 232);
+    text-align: center;
 }
 
 @font-face {
@@ -16,3 +17,92 @@ body {
     font-family: Montserrat-Regular, sans-serif;
     src: url(../fonts/Montserrat-Regular.ttf)
 }
+
+
+/* DESKTOP */
+
+/* .main-layout {
+
+} */
+
+.main-container {
+    width: 600px;
+    height: 937px;
+    background-color: #ffffff;
+    margin: 0 auto;
+    border: 1px solid black;
+  }
+
+
+  .nav-bar {
+    width: 600px;
+    height: 33px;
+    margin: 0 0 9.2px;
+    padding: 8.5px 25px 0 24.5px;
+    background-color:#fac75a;
+    display: flex;
+  }
+
+  .nav-bar .img {
+      justify-content: left;
+  }
+  .search-area {
+    width: 600px;
+    height: 51px;
+    background-color: rgb(255, 255, 255);
+  }
+
+  form.search-area input[type=text] {
+    padding: 8px;
+    font-size: 10px;
+    border: none;
+    width: 30%;
+    background: #f1f1f1;
+  }
+  
+  /* Style the submit button */
+  form.earch-area button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  form.earch-area button:hover {
+    background: #0b7dda;
+    cursor: pointer;
+  }
+  
+  /* Clear floats */
+  form.earch-area::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+.img-container {
+    width: 600px;
+    height: 466px;
+    margin: 12.8px 0 39px;
+    padding: 13.5px 24.5px 13.5px 25px;
+    background-color: #e3e3e3;
+
+
+
+}
+
+
+
+/* .editor-container {
+    text-align: center;
+    width: 600px;
+    height: 300px;
+    margin: 0 0 12.8px; 
+    /* padding: 13px 67.5px 12.5px 345.5px; */
+    /* background-color: #e3e3e3;
+  } */
+/* 
+  .canvas {
+
+  } */ 
