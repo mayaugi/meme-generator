@@ -1,18 +1,47 @@
 'use strict'
 
+var gCanvas;
+var gCtx;
+var gKeywords = {'happy': 12, 'funny': 1 }
+var gImgs = [{ id: 1, url: '/img/meme-imgs/1.jpg', keywords: ['happy, cheers'] }];
+var gMeme = {
+    selectedImgId: 5,
+    selectedLineIdx: 0,
+    lines: [
+        {
+            txt: 'I never eat Falafel',
+            size: 20,
+            align: 'left',
+            color: 'red'
+        }
+    ]
+}
+
 function init() {
-
+    gCanvas = document.getElementById('my-canvas')
+    gCtx = gCanvas.getContext('2d')
+    drawImg2()
+    drawText(text, x, y)
 }
 
-function drawImg() {
-    var elImg = document.querySelector('img')
-    gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height)
-    // console.log(gCanvas.width);
-}
+
+
+
+
+
+
+
+
+
+// function drawImg() {
+//     var elImg = document.querySelector('img')
+//     gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height)
+//     // console.log(gCanvas.width);
+// }
 
 function drawImg2() {
     var img = new Image()
-    img.src = 'img/1.jpg';
+    img.src = '/img/meme-imgs/1.jpg';
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
     }
@@ -20,10 +49,10 @@ function drawImg2() {
 
 function drawText(text, x, y) {
     gCtx.lineWidth = 2
-    // gCtx.strokeStyle = 'red'
-    // gCtx.fillStyle = 'white'
-    gCtx.font = '40px Arial'
-    // gCtx.textAlign = 'center'
+    gCtx.strokeStyle = 'black'
+    gCtx.fillStyle = 'white'
+    gCtx.font = '40px Montserrat-Regular'
+    gCtx.textAlign = 'center'
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
 }

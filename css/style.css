@@ -87,22 +87,37 @@ body {
     margin: 12.8px 0 39px;
     padding: 13.5px 24.5px 13.5px 25px;
     background-color: #e3e3e3;
-
-
-
+    display: flex;
 }
 
 
+canvas{
+    margin-top: 5px;
+    width: 270.5px;
+    height: 275.5px;
+    margin: 12.8px 0 39px;
+    padding: 13.5px 24.5px 13.5px 25px;
+}
 
-/* .editor-container {
-    text-align: center;
+.canvas-container{
+    display: block;
+    
+}
+
+.main-footer {
     width: 600px;
-    height: 300px;
-    margin: 0 0 12.8px; 
-    /* padding: 13px 67.5px 12.5px 345.5px; */
-    /* background-color: #e3e3e3;
-  } */
-/* 
-  .canvas {
+    height: 103.5px;
+    background-color: #fac75a;
+    justify-content: end;
+}
 
-  } */ 
+
+ canvas .img {
+  
+        width: 270.5px;
+        height: 275.5px;
+        margin: 0 0 24.3px;
+        padding: 5.5px 0 96.2px;
+        object-fit: contain;
+    
+}
