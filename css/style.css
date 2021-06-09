@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: bisque;
+}
+
+@font-face {
+    font-family: Impact, sans-serif;
+    src: url(../fonts/impact.ttf)
+}
+
+@font-face {
+    font-family: Montserrat-Regular, sans-serif;
+    src: url(../fonts/Montserrat-Regular.ttf)
+}
