@@ -1,28 +1,15 @@
 'use strict'
 
-var gCanvas;
-var gCtx;
-var gKeywords = {'happy': 12, 'funny': 1 }
-var gImgs = [{ id: 1, url: '/img/meme-imgs/1.jpg', keywords: ['happy, cheers'] }];
-var gMeme = {
-    selectedImgId: 5,
-    selectedLineIdx: 0,
-    lines: [
-        {
-            txt: 'I never eat Falafel',
-            size: 20,
-            align: 'left',
-            color: 'red'
-        }
-    ]
-}
+
 
 function init() {
     gCanvas = document.getElementById('my-canvas')
     gCtx = gCanvas.getContext('2d')
-    drawImg2()
-    drawText(text, x, y)
+    // drawImg2()
+    // drawText(text, x, y)
 }
+
+
 
 
 
@@ -32,13 +19,13 @@ function drawImg() {
     // console.log(gCanvas.width);
 }
 
-// function drawImg2() {
-//     var img = new Image()
-//     img.src = '/img/meme-imgs/1.jpg';
-//     img.onload = () => {
-//         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-//     }
-// }
+function drawImg2() {
+    var img = new Image()
+    img.src = '/img/meme-imgs/1.jpg';
+    img.onload = () => {
+        gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
+    }
+}
 
 function drawText(text, x, y) {
     gCtx.lineWidth = 2

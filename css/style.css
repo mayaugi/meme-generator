@@ -25,16 +25,7 @@ body {
 
 } */
 
-.main-container {
-    width: 600px;
-    height: 937px;
-    background-color: #ffffff;
-    margin: 0 auto;
-    border: 1px solid black;
-  }
-
-
-  .nav-bar {
+.nav-bar {
     width: 600px;
     height: 33px;
     margin: 0 0 9.2px;
@@ -46,6 +37,18 @@ body {
   .nav-bar .img {
       justify-content: left;
   }
+  
+.main-container {
+    display: block;
+    width: 600px;
+    height: 937px;
+    background-color: #ffffff;
+    margin: 0 auto;
+    border: 1px solid black;
+  }
+
+
+
   .search-area {
     width: 600px;
     height: 51px;
@@ -106,16 +109,20 @@ body {
     
       
 
-canvas{
+.canvas{
     margin-top: 5px;
-    width: 270.5px;
-    height: 275.5px;
-    margin: 12.8px 0 39px;
+    width: 600px;
+    height: 300px;
+    /* width: 270.5px;
+    height: 275.5px; */
+    margin: 12.8px 0 39px; 
     padding: 13.5px 24.5px 13.5px 25px;
 }
 
 .canvas-container{
-    display: block;
+    display: none;
+   
+    background-color: darkgrey;
     
 }
 

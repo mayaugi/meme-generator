@@ -12,28 +12,28 @@
 
 <body onload="init()">
     <h1>me me memes</h1>
+    <div class="canvas-container">
+        <canvas id="my-canvas" width="600" height="300" onclick="draw(event)" ></canvas>
+    </div>
+
     <main class="main-container">
-        <nav class="nav-bar"> <img src="/img/logo-img/LOGO.png" alt="logo" width="66.5" height="11"></nav>
+        <nav class="nav-bar"> <img src="./img/logo-img/LOGO.png" alt="logo" width="66.5" height="11"></nav>
         <form class="search-area">
             <input type="text" placeholder="Enter search keyword" autocomplete="off" name="search">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
         <main class="img-container">
-            <a href="" class="img-1">
-              <img src="./img/meme-imgs/1.jpg"></a>
-              <a href="" class="img-2">
-                <img src="./img/meme-imgs/2.jpg"></a>
-                <a href="" class="img-3">
-                    <img src="./img/meme-imgs/12.jpg"></a>
+            <img src="./img/meme-imgs/1.jpg" onclick="openEditor()"></a>
+            <a href="#"  class="img-1">
+              <a href="#" class="img-2">
+                <img src="./img/meme-imgs/2.jpg" onclick="openEditor()"></a>
+                <a href="#" class="img-3">
+                    <img src="./img/meme-imgs/12.jpg" onclick="openEditor()"></a>
         </main>
         
-        <div class="canvas-container">
-            <canvas id="my-canvas" onclick="draw(event)" hidden ></canvas>
-        </div>
-
+     
     
     
-        <img src="img/dog.jpg" alt="" style="display: none;">
         <footer class="main-footer"></footer>
     </main>
 
@@ -41,7 +41,8 @@
 
 
 
-    <script src="/js/main.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/service.js"></script>
 </body>
 
 </html>
