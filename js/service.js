@@ -22,9 +22,23 @@ var gMeme = {
     ]
 }
 
+function getImages() {
+    return gImgs;
+}
+
+
+
+function getId(id) {
+    gMeme.selectedImgId = id;
+    openEditor()
+    drawImg2()
+
+}
 
 
 function openEditor() {
     document.querySelector('.canvas-container').style.display = 'block';    
-    document.querySelector('.main-container').style.display = 'none';    
+    document.querySelector('.main-container').style.display = 'none';   
+   
+
 }

@@ -5,11 +5,22 @@
 function init() {
     gCanvas = document.getElementById('my-canvas')
     gCtx = gCanvas.getContext('2d')
+    renderImage()
     // drawImg2()
     // drawText(text, x, y)
 }
 
 
+
+function renderImage() {
+    var images = getImages()
+    var strHtml = images.map((img)=> {
+        return `<img src="${img.url}" onclick="getId(${img.id})"></img>`
+
+    })
+    document.querySelector('.grid-container').innerHTML = strHtml
+
+}
 
 
 
@@ -21,11 +32,23 @@ function drawImg() {
 
 function drawImg2() {
     var img = new Image()
-    img.src = '/img/meme-imgs/1.jpg';
+    
+    img.src = getSrcUrl()
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
     }
 }
+
+
+function getSrcUrl(){
+    var img = gImgs.filter((img) =>{
+        if(gMeme.selectedImgId === img.id) {
+            return img
+        }
+    })
+    return img[0].url
+}
+
 
 function drawText(text, x, y) {
     gCtx.lineWidth = 2

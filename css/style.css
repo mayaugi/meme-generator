@@ -84,6 +84,13 @@ body {
     display: table;
   }
 
+
+  .grid-container {
+      display: grid;
+      gap: 5px;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 100px));
+  }
+
 .img-container {
     width: 600px;
     height: 466px;
