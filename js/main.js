@@ -26,26 +26,19 @@ function init() {
 
 
 
-
-
-
-
-
-
-
-// function drawImg() {
-//     var elImg = document.querySelector('img')
-//     gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height)
-//     // console.log(gCanvas.width);
-// }
-
-function drawImg2() {
-    var img = new Image()
-    img.src = '/img/meme-imgs/1.jpg';
-    img.onload = () => {
-        gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-    }
+function drawImg() {
+    var elImg = document.querySelector('img')
+    gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height)
+    // console.log(gCanvas.width);
 }
+
+// function drawImg2() {
+//     var img = new Image()
+//     img.src = '/img/meme-imgs/1.jpg';
+//     img.onload = () => {
+//         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
+//     }
+// }
 
 function drawText(text, x, y) {
     gCtx.lineWidth = 2

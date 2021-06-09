@@ -69,10 +69,10 @@ body {
     cursor: pointer;
   }
   
-  form.earch-area button:hover {
+  /* form.earch-area button:hover {
     background: #0b7dda;
     cursor: pointer;
-  }
+  } */
   
   /* Clear floats */
   form.earch-area::after {
@@ -90,6 +90,21 @@ body {
     display: flex;
 }
 
+.img-container {
+        padding: 15px;
+        text-align: center;
+        border: 1px solid #ccc;
+
+      }
+      
+      .img-container img {
+        width: 176.5px;
+        height: 139px;
+        padding: 10px;
+        
+      }
+    
+      
 
 canvas{
     margin-top: 5px;
@@ -104,12 +119,12 @@ canvas{
     
 }
 
-.main-footer {
+/* .main-footer {
     width: 600px;
     height: 103.5px;
     background-color: #fac75a;
     justify-content: end;
-}
+} */
 
 
  canvas .img {
