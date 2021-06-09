@@ -4,6 +4,11 @@ function init() {
 
 }
 
+function drawImg() {
+    var elImg = document.querySelector('img')
+    gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height)
+    // console.log(gCanvas.width);
+}
 
 function drawImg2() {
     var img = new Image()
@@ -11,6 +16,16 @@ function drawImg2() {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
     }
+}
+
+function drawText(text, x, y) {
+    gCtx.lineWidth = 2
+    // gCtx.strokeStyle = 'red'
+    // gCtx.fillStyle = 'white'
+    gCtx.font = '40px Arial'
+    // gCtx.textAlign = 'center'
+    gCtx.fillText(text, x, y)
+    gCtx.strokeText(text, x, y)
 }
 
 
