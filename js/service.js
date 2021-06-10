@@ -17,6 +17,7 @@ var gImgs = [
 var gMeme = {
     selectedImgId: 0,
     selectedLineIdx: 0,
+    lineCount:0,
     lines: [
         {
             txt: '',
