@@ -24,7 +24,9 @@
         <canvas id="my-canvas" width="270" height="275"></canvas>
 
 		<div class="meme-editor"> 
-            <span class="material-icons">format_size</span>				
+            <button class="material-icons" class="decrease" onclick="changeSize('+')">format_size</button>				
+            <button class="material-icons" class="increase" onclick="changeSize('-')">format_size</button>				
+            <span class="material-icons" onclick="movingLines()">swap_vert</span>
         <input type="text" placeholder="Enter text" autocomplete="off" class="meme-text" oninput="updateGmeme(this.value, 100, 100)"></div>
     </div>
 

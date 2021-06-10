@@ -1,61 +1,84 @@
 'use strict'
 
 
-
 function init() {
     gCanvas = document.getElementById('my-canvas')
     gCtx = gCanvas.getContext('2d')
     renderImage()
+    
 }
 
 
 
 function renderImage() {
     var images = getImages()
-    var strHtml = images.map((img)=> {
+    var strHtml = images.map((img) => {
         gMeme.selectedImgId = img.id;
         return `<img src="${img.url}" onclick="getId(${img.id})"></img>`
-
     })
-    document.querySelector('.grid-container').innerHTML = strHtml
+    document.querySelector('.grid-container').innerHTML = strHtml.join('')
 
 }
 
 
 
 function drawImg() {
+    console.log('in drawImg')
     var img = new Image()
-    img.src = getSrcUrl()
+    img.src = `${gImgs[gMeme.selectedImgId - 1].url}`
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
+        drawText(gMeme.lines[0].txt, 100, 100, gMeme.lines[0].size)
     }
 }
 
 
-function getSrcUrl(){
-    var img = gImgs.filter((img) =>{
-        if(gMeme.selectedImgId === img.id) {
-            return img
-        }
-    })
-    return img[0].url
+// function getSrcUrl() {
+//     var img = gImgs.filter((img) => {
+//         if (gMeme.selectedImgId === img.id) {
+//             return img
+//         }
+//     })
+//     return img[0].url
+// }
+
+function clearCanvas(){
+    gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
+    drawImg()
 }
 
-
 function updateGmeme(txt, x, y) {
+    console.log('in updateGmem')
     gMeme.lines[0].txt = txt;
     drawText(gMeme.lines[0].txt, x, y)
 }
 
-function drawText(text, x, y) {
+function drawText(text, x, y, fontSize=70) {
+    console.log('in drawText')
     // gCtx.lineWidth = 3;
     gCtx.strokeStyle = 'black'
     gCtx.fillStyle = 'white'
-    gCtx.font = '70px Impact'
+    gCtx.font = `${fontSize}px Impact`
     // gCtx.textAlign = 'center'
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
 }
+
+
+function changeSize(val) {
+    console.log('in changeSize')
+    if (val === '+') {
+        gMeme.lines[0].size += 10;
+    } else if (val === '-') {
+        gMeme.lines[0].size -= 10;
+    }
+    drawImg()
+}
+
+
+// function movingLines() {
+
+// }
 
 
 // function downloadCanvas(elLink) {

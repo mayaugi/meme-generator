@@ -21,7 +21,7 @@ var gMeme = {
     lines: [
         {
             txt: '',
-            size: 20,
+            size: 70,
             align: 'left',
             color: 'red'
         }
