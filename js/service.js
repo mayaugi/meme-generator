@@ -7,6 +7,12 @@ var gImgs = [
     { id: 2, url: './img/meme-imgs/2.jpg', keywords: ['funny'] },
     { id: 3, url: './img/meme-imgs/3.jpg', keywords: ['happy'] },
     { id: 4, url: './img/meme-imgs/4.jpg', keywords: ['happy'] },
+    { id: 5, url: './img/meme-imgs/5.jpg', keywords: ['happy'] },
+    { id: 6, url: './img/meme-imgs/6.jpg', keywords: ['happy'] },
+    { id: 7, url: './img/meme-imgs/7.jpg', keywords: ['happy'] },
+    { id: 8, url: './img/meme-imgs/8.jpg', keywords: ['happy'] },
+    { id: 9, url: './img/meme-imgs/9.jpg', keywords: ['happy'] },
+    { id: 10, url: './img/meme-imgs/10.jpg', keywords: ['happy']},
 ];
 
 var gMeme = {
@@ -14,7 +20,7 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'I never eat Falafel',
+            txt: '',
             size: 20,
             align: 'left',
             color: 'red'
@@ -31,14 +37,32 @@ function getImages() {
 function getId(id) {
     gMeme.selectedImgId = id;
     openEditor()
-    drawImg2()
+    drawImg()
+  
 
 }
 
 
 function openEditor() {
     document.querySelector('.canvas-container').style.display = 'block';    
-    document.querySelector('.main-container').style.display = 'none';   
+    document.querySelector('.main-content').style.display = 'none';   
    
 
 }
+
+// function draw(ev) {
+//     var offsetX = ev.offsetX
+//     var offsetY = ev.offsetY
+
+//     if (gTouchEvs.includes(ev.type)) {
+//         ev.preventDefault()
+//         ev = ev.changedTouches[0]
+//         var pos = {
+//             x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+//             y: ev.pageY - ev.target.offsetTop - ev.target.clientTop
+//         }
+//         offsetX = pos.x;
+//         offsetY = pos.y;
+//     }
+
+// }

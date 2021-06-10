@@ -7,25 +7,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <title>Meme Generator</title>
 </head>
 
 <body onload="init()">
-    <h1>me me memes</h1>
-    <nav class="nav-bar"> <img src="./img/logo-img/LOGO.png" alt="logo" width="66.5" height="11"></nav>
+    <header class="header" flex > 
+        <img src="./img/logo-img/LOGO.png" alt="logo" width="66.5" height="11">
+        <a href="" class="Gallery" >Gallery</a>
+        <!-- <a href="" class="About" >About</a> -->
+    </header>
+    
+
     <div class="canvas-container">
-        <canvas id="my-canvas" width="600" height="300" onclick="draw(event)" ></canvas>
+        <canvas id="my-canvas" width="270" height="275"></canvas>
+
+		<div class="meme-editor"> 
+            <span class="material-icons">format_size</span>				
+        <input type="text" placeholder="Enter text" autocomplete="off" class="meme-text" oninput="updateGmeme(this.value, 100, 100)"></div>
     </div>
 
-    <main class="main-container">
+    <main class="main-content" flex>
         <form class="search-area">
             <input type="text" placeholder="Enter search keyword" autocomplete="off" name="search">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
         <main class="grid-container">
         </main>
-        
-     
     
     
         <footer class="main-footer"></footer>
@@ -37,6 +46,7 @@
 
     <script src="js/main.js"></script>
     <script src="js/service.js"></script>
+    <script src="js/storage-service.js"></script>
 </body>
 
 </html>

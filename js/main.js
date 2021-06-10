@@ -6,8 +6,6 @@ function init() {
     gCanvas = document.getElementById('my-canvas')
     gCtx = gCanvas.getContext('2d')
     renderImage()
-    // drawImg2()
-    // drawText(text, x, y)
 }
 
 
@@ -15,6 +13,7 @@ function init() {
 function renderImage() {
     var images = getImages()
     var strHtml = images.map((img)=> {
+        gMeme.selectedImgId = img.id;
         return `<img src="${img.url}" onclick="getId(${img.id})"></img>`
 
     })
@@ -25,14 +24,7 @@ function renderImage() {
 
 
 function drawImg() {
-    var elImg = document.querySelector('img')
-    gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height)
-    // console.log(gCanvas.width);
-}
-
-function drawImg2() {
     var img = new Image()
-    
     img.src = getSrcUrl()
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
@@ -50,12 +42,17 @@ function getSrcUrl(){
 }
 
 
+function updateGmeme(txt, x, y) {
+    gMeme.lines[0].txt = txt;
+    drawText(gMeme.lines[0].txt, x, y)
+}
+
 function drawText(text, x, y) {
-    gCtx.lineWidth = 2
+    // gCtx.lineWidth = 3;
     gCtx.strokeStyle = 'black'
     gCtx.fillStyle = 'white'
-    gCtx.font = '40px Montserrat-Regular'
-    gCtx.textAlign = 'center'
+    gCtx.font = '70px Impact'
+    // gCtx.textAlign = 'center'
     gCtx.fillText(text, x, y)
     gCtx.strokeText(text, x, y)
 }
