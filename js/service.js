@@ -1,6 +1,6 @@
 var gCanvas;
 var gCtx;
-var gKeywords = {'happy': 12, 'funny': 1 }
+var gKeywords = { 'happy': 12, 'funny': 1 }
 
 var gImgs = [
     { id: 1, url: './img/meme-imgs/1.jpg', keywords: ['happy'] },
@@ -12,18 +12,18 @@ var gImgs = [
     { id: 7, url: './img/meme-imgs/7.jpg', keywords: ['happy'] },
     { id: 8, url: './img/meme-imgs/8.jpg', keywords: ['happy'] },
     { id: 9, url: './img/meme-imgs/9.jpg', keywords: ['happy'] },
-    { id: 10, url: './img/meme-imgs/10.jpg', keywords: ['happy']},
 ];
 
 var gMeme = {
-    selectedImgId: 5,
+    selectedImgId: 0,
     selectedLineIdx: 0,
     lines: [
         {
             txt: '',
             size: 70,
             align: 'left',
-            color: 'red'
+            color: 'red',
+            lineHight: 100,
         }
     ]
 }
@@ -38,15 +38,15 @@ function getId(id) {
     gMeme.selectedImgId = id;
     openEditor()
     drawImg()
-  
+
 
 }
 
 
 function openEditor() {
-    document.querySelector('.canvas-container').style.display = 'block';    
-    document.querySelector('.main-content').style.display = 'none';   
-   
+    document.querySelector('.canvas-container').style.display = 'block';
+    document.querySelector('.main-content').style.display = 'none';
+
 
 }
 

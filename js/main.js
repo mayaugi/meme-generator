@@ -1,6 +1,5 @@
 'use strict'
 
-
 function init() {
     gCanvas = document.getElementById('my-canvas')
     gCtx = gCanvas.getContext('2d')
@@ -33,19 +32,10 @@ function drawImg() {
 }
 
 
-// function getSrcUrl() {
-//     var img = gImgs.filter((img) => {
-//         if (gMeme.selectedImgId === img.id) {
-//             return img
-//         }
-//     })
-//     return img[0].url
+// function clearCanvas(){
+//     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
+//     drawImg()
 // }
-
-function clearCanvas(){
-    gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
-    drawImg()
-}
 
 function updateGmeme(txt, x, y) {
     console.log('in updateGmem')
@@ -60,8 +50,8 @@ function drawText(text, x, y, fontSize=70) {
     gCtx.fillStyle = 'white'
     gCtx.font = `${fontSize}px Impact`
     // gCtx.textAlign = 'center'
-    gCtx.fillText(text, x, y)
-    gCtx.strokeText(text, x, y)
+    gCtx.fillText(text, x, gMeme.lines[0].lineHight)
+    gCtx.strokeText(text, x, gMeme.lines[0].lineHight)
 }
 
 
@@ -76,10 +66,39 @@ function changeSize(val) {
 }
 
 
-// function movingLines() {
+function moveLineUp() {
+    gMeme.lines[0].lineHight -=10;
+    drawText()
+    drawImg()
+}
 
+function moveLineDown() {
+    gMeme.lines[0].lineHight +=10;
+    drawText()
+    drawImg()
+}
+
+function addRemoveLine(text, x, y, fontSize=70) {
+    gMeme.lines.push({
+        txt: '',
+        size: 70, 
+        align: 'left',
+        color: 'red',
+        lineHight: 200})
+    gCtx.fillText(gMeme.lines[1].txt, 100, 200)
+    gCtx.strokeText(gMeme.lines[1].txt, 100, 200)
+    
+    var addInput = `<input type="text" placeholder="Enter text" autocomplete="off" class="meme-text" oninput="updateGmeme(this.value, 100, 200)">`
+    document.querySelector('.meme-editor').innerHTML += addInput
+    gMeme.selectedLineIdx = 1;
+
+}
+
+// function swichLine() {
+   
 // }
 
+// getLineIdx 
 
 // function downloadCanvas(elLink) {
 //     const data = gCanvas.toDataURL()
