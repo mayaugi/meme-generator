@@ -66,6 +66,7 @@ function changeSize(val) {
 function moveLineUp() {
     gMeme.lines[gLineId].lineHight -=10;
     drawImg()
+
 }
 
 function moveLineDown() {
