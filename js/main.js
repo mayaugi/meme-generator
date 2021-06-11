@@ -39,9 +39,9 @@ function updateGmeme(txt, x, y) {
     drawText(gMeme.lines[gLineId].txt, x, y)
 }
 
-function drawText(text, x, y, fontSize=70) {
+function drawText(text, x, y, fontSize=50) {
     console.log('in drawText')
-    // gCtx.lineWidth = 3;
+    gCtx.lineWidth = 2;
     gCtx.strokeStyle = 'black'
     gCtx.fillStyle = 'white'
     gCtx.font = `${fontSize}px Impact`
@@ -90,11 +90,12 @@ function addLine(text, x, y, fontSize=70) {
 
 }
 
-// function deleteLine() {
-//     console.log('in deleteLine');
-//     gMeme.lines[gLineId].text =
+function deleteLine() {
+    gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height)
+    drawImg()
+    gMeme.lines[gLineId].txt = '';
      
-// }
+}
 
 function updateId (id) {
     gMeme.selectedLineIdx = id
@@ -112,15 +113,3 @@ function downloadCanvas(elLink) {
     elLink.href = data
     elLink.download = 'my-meme'
 }
-
-// window.addEventListener('resize', function(){
-//     gCanvas.width = window.innerWidth
-//     gCanvas.height = window.innerHeight
-//     resizeCanvas()
-// })
-
-// function resizeCanvas() {
-//     var elContainer = document.querySelector('.canvas-container');
-//     gCanvas.width = elContainer.offsetWidth
-//     gCanvas.height = elContainer.offsetHeight
-// }
