@@ -90,12 +90,12 @@ function addLine(text, x, y, fontSize=70) {
 
 }
 
-function deleteLine() {
-    console.log('in deleteLine');
-    gMeme.lines[gLineId].text = ''
-
+// function deleteLine() {
+//     console.log('in deleteLine');
+//     gMeme.lines[gLineId].text =
      
-}
+// }
+
 function updateId (id) {
     gMeme.selectedLineIdx = id
     gLineId = gMeme.selectedLineIdx
