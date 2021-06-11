@@ -141,11 +141,11 @@ body {
 
  canvas .img {
   
-        width: 270.5px;
-        height: 275.5px;
-        margin: 0 0 24.3px;
-        padding: 5.5px 0 96.2px;
-        object-fit: contain;
+width: 270.5px;
+height: 275.5px;
+margin: 0 0 24.3px;
+padding: 5.5px 0 96.2px;
+object-fit: contain;
     
 }
 
@@ -165,8 +165,8 @@ body {
   height: 300px;
   background-color: #c5aec3;
   display: none;
-  margin-inline-start: 340px;
   border: 1px solid black;
+ margin: auto;
 
 }
 /* 
