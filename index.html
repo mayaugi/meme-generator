@@ -13,15 +13,15 @@
 </head>
 
 <body onload="init()">
-    <header class="header main-layout flex">
-        <img src="img/logo-img/LOGO.png" alt="logo" width="66.5" height="11">
-
-        <!-- <a href="" class="Gallery">MEMGEN</a> -->
-        <a href="#" class="Gallery">Gallery</a>
-        <a href="#" class="Gallery">Memes</a>
-        <a href="#" class="Gallery">Editor</a>
-
-
+    <header class="header main-layout">
+        <div class="main-header flex">
+        <div class="logo flex">memgen</div>
+        <ul class="main-nav clean-list flex">
+            <li><a class="Gallery" href="#">Gallery</a></li>
+            <li><a class="Memes" href="#">Memes</a></li>
+            <li><a class="Editor" href="#">About</a></li>
+        </ul>
+    </div>
     </header>
 
     <div class="editor-bg main-layout">
@@ -30,10 +30,8 @@
                 <canvas id="my-canvas" width="270" height="275"></canvas>
             </div>
             <div class="control-box">
-                <!-- <div class="edit-container"></div> -->
-                <!-- <div class="icons-container" > -->
                 <input type="text" placeholder="Enter text" autocomplete="off" class="meme-text" id="0"
-                    oninput="updateGmeme(this.value, 100, 100)" onfocus="updateId(this.id)">
+                    oninput="updateGmeme(this.value, 100, 100)" onfocus="updateId(this.id)"> <br><br>
                 <button class="material-icons" class="decrease" onclick="changeSize('+')">format_size</button>
                 <button class="material-icons" class="increase" onclick="changeSize('-')">format_size</button>
                 <button class="material-icons" class="moveLineUp" onclick="moveLineUp()">north</button>
@@ -68,8 +66,13 @@
         </main>
 
 
-        <footer class="main-footer"></footer>
-    </main>
+        <footer class="main-footer">
+            <div class="footer-container">
+            <div class="logo-footer">memegem</div>
+            <small>all rights reserved</small>
+        </div>
+        </footer>
+   
 
     <script src="js/main.js"></script>
     <script src="js/service.js"></script>
