@@ -7,29 +7,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <title>Meme Generator</title>
 </head>
 
 <body onload="init()">
-    <header class="header" flex > 
+    <header class="header" flex>
         <img src="./img/logo-img/LOGO.png" alt="logo" width="66.5" height="11">
-        <a href="" class="Gallery" >Gallery</a>
+      
+        <!-- <a href="" class="Gallery">MEMGEN</a> -->
+        <a href="" class="Gallery">Gallery</a>
+        <a href="" class="Gallery">Memes</a>
+        <a href="" class="Gallery">Editor</a>
+     
 
     </header>
-    
 
-    <div class="canvas-container">
-        <canvas id="my-canvas" width="270" height="275"></canvas>
+    <div class="editor-bg">
+        <div class="main flex">
+        <div class="canvas-container">
+            <canvas id="my-canvas" width="270" height="275"></canvas>
+        </div>
+            <div class="control-box">   
+                <!-- <div class="edit-container"></div> -->
+                <!-- <div class="icons-container" > -->
+                    <input type="text" placeholder="Enter text" autocomplete="off" class="meme-text" id="0"
+                    oninput="updateGmeme(this.value, 100, 100)" onfocus="updateId(this.id)">
+                    <button class="material-icons" class="decrease" onclick="changeSize('+')">format_size</button>
+                    <button class="material-icons" class="increase" onclick="changeSize('-')">format_size</button>
+                    <button class="material-icons" class="moveLineUp" onclick="moveLineUp()">north</button>
+                    <button class="material-icons" class="moveLineDown" onclick="moveLineDown()">south</button>
+                    <button class="material-icons" onclick="deleteLine()">delete</button>
+                    <button class="material-icons" onclick="addLine(this.value, 100, 200)">add_box</button>
+                    <button onclick="downloadCanvas(this)" download="file-name"><i class="fa fa-download"></i> Download</button>
 
-		<div class="meme-editor"> 
-            <button class="material-icons" class="decrease" onclick="changeSize('+')">format_size</button>				
-            <button class="material-icons" class="increase" onclick="changeSize('-')">format_size</button>				
-            <button class="material-icons" class="moveLineUp" onclick="moveLineUp()">north</button>
-            <button class="material-icons" class="moveLineDown" onclick="moveLineDown()">south</button>
-            <button class="material-icons" onclick="addRemoveLine(this.value, 100, 200)">add_box</button>
-        <input type="text" placeholder="Enter text" autocomplete="off" class="meme-text" id="0" oninput="updateGmeme(this.value, 100, 100)" onfocus="updateInputElem(this.id)" ></div>
+                    <!-- <a href="#" onclick="downloadCanvas(this)" download="file-name">Download</a> -->
+
+                      <!-- <img src="img/ICONS/add.png">
+                <img src="img/ICONS/decrease font - icon.png">
+                <img src="img/ICONS/increase font - icon.png">
+                <img src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png">
+                <img src="img/ICONS/text stroke.png">
+                <img src="img/ICONS/trash.png"> -->
+            </div>
+        </div>
     </div>
 
     <main class="main-content" flex>
@@ -39,8 +61,8 @@
         </form>
         <main class="grid-container">
         </main>
-    
-    
+
+
         <footer class="main-footer"></footer>
     </main>
 

@@ -46,6 +46,7 @@ function getId(id) {
 
 function openEditor() {
     document.querySelector('.canvas-container').style.display = 'block';
+    document.querySelector('.editor-bg').style.display = 'block';
     document.querySelector('.main-content').style.display = 'none';
 
 

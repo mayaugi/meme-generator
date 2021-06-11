@@ -1,6 +1,6 @@
 'use strict'
 
-var lineID = 0
+var gLineId = 0
 
 function init() {
     gCanvas = document.getElementById('my-canvas')
@@ -28,15 +28,15 @@ function drawImg() {
     img.src = `${gImgs[gMeme.selectedImgId - 1].url}`
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-        drawText(gMeme.lines[lineID].txt, 100, 100, gMeme.lines[lineID].size)
+        drawText(gMeme.lines[gLineId].txt, 100, 100, gMeme.lines[gLineId].size)
     }
 }
 
 
 function updateGmeme(txt, x, y) {
     console.log('in updateGmem')
-    gMeme.lines[lineID].txt = txt;
-    drawText(gMeme.lines[lineID].txt, x, y)
+    gMeme.lines[gLineId].txt = txt;
+    drawText(gMeme.lines[gLineId].txt, x, y)
 }
 
 function drawText(text, x, y, fontSize=70) {
@@ -46,63 +46,78 @@ function drawText(text, x, y, fontSize=70) {
     gCtx.fillStyle = 'white'
     gCtx.font = `${fontSize}px Impact`
     // gCtx.textAlign = 'center'
-    gCtx.fillText(text, x, gMeme.lines[lineID].lineHight)
-    gCtx.strokeText(text, x, gMeme.lines[lineID].lineHight)
+    gCtx.fillText(text, x, gMeme.lines[gLineId].lineHight)
+    gCtx.strokeText(text, x, gMeme.lines[gLineId].lineHight)
 }
+
 
 
 function changeSize(val) {
     console.log('in changeSize')
     if (val === '+') {
-        gMeme.lines[lineID].size += 10;
+        gMeme.lines[gLineId].size += 10;
     } else if (val === '-') {
-        gMeme.lines[lineID].size -= 10;
+        gMeme.lines[gLineId].size -= 10;
     }
     drawImg()
 }
 
 
 function moveLineUp() {
-    gMeme.lines[lineID].lineHight -=10;
-    drawText()
+    gMeme.lines[gLineId].lineHight -=10;
     drawImg()
 }
 
 function moveLineDown() {
-    gMeme.lines[lineID].lineHight +=10;
-    drawText()
+    gMeme.lines[gLineId].lineHight +=10;
     drawImg()
 }
 
-function addRemoveLine(text, x, y, fontSize=70) {
+function addLine(text, x, y, fontSize=70) {
     gMeme.lines.push({
         txt: '',
         size: 70, 
         align: 'left',
         color: 'red',
         lineHight: 200})
-        gCtx.fillText(gMeme.lines[lineID].txt, 100, 200)
-        gCtx.strokeText(gMeme.lines[lineID].txt, 100, 200)
+        gCtx.fillText(gMeme.lines[gLineId].txt, 100, 200)
+        gCtx.strokeText(gMeme.lines[gLineId].txt, 100, 200)
     
-    var addInput = `<input type="text" placeholder="Enter text" autocomplete="off" class="meme-text" id=${gMeme.lineCount+1} oninput="updateGmeme(this.value, 100, 200)" onfocus="updateInputElem(this.id)">`
-    document.querySelector('.meme-editor').innerHTML += addInput
+    var addInput = `<input type="text" placeholder="Enter text" autocomplete="off" class="meme-text" id=${gMeme.lineCount+1} oninput="updateGmeme(this.value, 100, 200)" onfocus="updateId(this.id)">`
+    document.querySelector('.control-box').innerHTML += addInput
     gMeme.lineCount += 1;
     drawImg()
-    drawImg()
 
 }
 
-function updateInputElem (id) {
+function deleteLine() {
+    console.log('in deleteLine');
+    gMeme.lines[gLineId].text = ''
+
+     
+}
+function updateId (id) {
     gMeme.selectedLineIdx = id
-    lineID = gMeme.selectedLineIdx
+    gLineId = gMeme.selectedLineIdx
+    
 }
 
 
-    // window.addEventListener('resize', function(){
-    //     gCanvas.width = window.innerWidth
-    //     gCanvas.height = window.innerHeight
-    //     resizeCanvas()
-    // })
+
+
+
+function downloadCanvas(elLink) {
+    const data = gCanvas.toDataURL()
+    console.log('DATA', data);
+    elLink.href = data
+    elLink.download = 'my-meme'
+}
+
+// window.addEventListener('resize', function(){
+//     gCanvas.width = window.innerWidth
+//     gCanvas.height = window.innerHeight
+//     resizeCanvas()
+// })
 
 // function resizeCanvas() {
 //     var elContainer = document.querySelector('.canvas-container');
