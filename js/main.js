@@ -88,6 +88,7 @@ function addRemoveLine(text, x, y, fontSize=70) {
     document.querySelector('.meme-editor').innerHTML += addInput
     gMeme.lineCount += 1;
     drawImg()
+    drawImg()
 
 }
 
@@ -97,14 +98,14 @@ function updateInputElem (id) {
 }
 
 
-window.addEventListener('resize', function(){
-    gCanvas.width = window.innerWidth
-    gCanvas.height = window.innerHeight
-    resizeCanvas()
-})
+    // window.addEventListener('resize', function(){
+    //     gCanvas.width = window.innerWidth
+    //     gCanvas.height = window.innerHeight
+    //     resizeCanvas()
+    // })
 
-function resizeCanvas() {
-    var elContainer = document.querySelector('.canvas-container');
-    gCanvas.width = elContainer.offsetWidth
-    gCanvas.height = elContainer.offsetHeight
-}
+// function resizeCanvas() {
+//     var elContainer = document.querySelector('.canvas-container');
+//     gCanvas.width = elContainer.offsetWidth
+//     gCanvas.height = elContainer.offsetHeight
+// }
