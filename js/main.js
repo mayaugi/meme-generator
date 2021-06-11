@@ -83,6 +83,7 @@ function addLine(text, x, y, fontSize=70) {
         lineHight: 200})
         gCtx.fillText(gMeme.lines[gLineId].txt, 100, 200)
         gCtx.strokeText(gMeme.lines[gLineId].txt, 100, 200)
+        
     
     var addInput = `<input type="text" placeholder="Enter text" autocomplete="off" class="meme-text" id=${gMeme.lineCount+1} oninput="updateGmeme(this.value, 100, 200)" onfocus="updateId(this.id)">`
     document.querySelector('.control-box').innerHTML += addInput
@@ -100,12 +101,8 @@ function deleteLine() {
 
 function updateId (id) {
     gMeme.selectedLineIdx = id
-    gLineId = gMeme.selectedLineIdx
-    
+    gLineId = gMeme.selectedLineIdx    
 }
-
-
-
 
 
 function downloadCanvas(elLink) {

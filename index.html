@@ -13,40 +13,42 @@
 </head>
 
 <body onload="init()">
-    <header class="header" flex>
+    <header class="header main-layout flex">
         <img src="img/logo-img/LOGO.png" alt="logo" width="66.5" height="11">
-      
+
         <!-- <a href="" class="Gallery">MEMGEN</a> -->
-        <a href="" class="Gallery">Gallery</a>
-        <a href="" class="Gallery">Memes</a>
-        <a href="" class="Gallery">Editor</a>
-     
+        <a href="#" class="Gallery">Gallery</a>
+        <a href="#" class="Gallery">Memes</a>
+        <a href="#" class="Gallery">Editor</a>
+
 
     </header>
 
-    <div class="editor-bg">
+    <div class="editor-bg main-layout">
         <div class="main flex">
-        <div class="canvas-container">
-            <canvas id="my-canvas" width="270" height="275"></canvas>
-        </div>
-            <div class="control-box">   
+            <div class="canvas-container">
+                <canvas id="my-canvas" width="270" height="275"></canvas>
+            </div>
+            <div class="control-box">
                 <!-- <div class="edit-container"></div> -->
                 <!-- <div class="icons-container" > -->
-                    <input type="text" placeholder="Enter text" autocomplete="off" class="meme-text" id="0"
+                <input type="text" placeholder="Enter text" autocomplete="off" class="meme-text" id="0"
                     oninput="updateGmeme(this.value, 100, 100)" onfocus="updateId(this.id)">
-                    <button class="material-icons" class="decrease" onclick="changeSize('+')">format_size</button>
-                    <button class="material-icons" class="increase" onclick="changeSize('-')">format_size</button>
-                    <button class="material-icons" class="moveLineUp" onclick="moveLineUp()">north</button>
-                    <button class="material-icons" class="moveLineDown" onclick="moveLineDown()">south</button>
-                    <button class="material-icons" onclick="deleteLine()">delete</button>
-                    <button class="material-icons" onclick="addLine(this.value, 100, 200)">add_box</button>
+                <button class="material-icons" class="decrease" onclick="changeSize('+')">format_size</button>
+                <button class="material-icons" class="increase" onclick="changeSize('-')">format_size</button>
+                <button class="material-icons" class="moveLineUp" onclick="moveLineUp()">north</button>
+                <button class="material-icons" class="moveLineDown" onclick="moveLineDown()">south</button>
+                <button class="material-icons" onclick="deleteLine()">delete</button>
+                <button class="material-icons" onclick="addLine(this.value, 100, 200)">add_box</button>
+                <form class="form flex">
                     <a class="download" onclick="downloadCanvas(this)" download="file-name">Download</a>
                     <a class="publish-btn" type="submit">Publish</a>
+                </form>
 
-                    <!-- <button class="btn" type="submit">Publish</button> -->
+                <!-- <button class="btn" type="submit">Publish</button> -->
 
 
-                      <!-- <img src="img/ICONS/add.png">
+                <!-- <img src="img/ICONS/add.png">
                 <img src="img/ICONS/decrease font - icon.png">
                 <img src="img/ICONS/increase font - icon.png">
                 <img src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png">
@@ -57,7 +59,7 @@
         <footer class="main-footer"></footer>
     </div>
 
-    <main class="main-content" flex>
+    <main class="main-content main-layout">
         <form class="search-area">
             <input type="text" placeholder="Enter search keyword" autocomplete="off" name="search">
             <button type="submit"><i class="fa fa-search"></i></button>
