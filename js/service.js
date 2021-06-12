@@ -26,9 +26,10 @@ var gMeme = {
         {
             txt: '',
             size: 50,
+            lineHight: 60,
+            lineWidth: 100,
             align: 'left',
             color: 'red',
-            lineHight: 100,
         }
     ]
 }
@@ -44,18 +45,9 @@ function getId(id) {
     drawImg()
 }
 
-function updateGmeme(txt, x, y) {
-    console.log('in updateGmem')
-    gMeme.lines[gLineId].txt = txt;
-    drawText(gMeme.lines[gLineId].txt, x, y)
-    drawImg()
-}
 
-function openEditor() {
-    document.querySelector('.canvas-container').style.display = 'block';
-    document.querySelector('.editor-bg').style.display = 'block';
-    document.querySelector('.main-content').style.display = 'none';
-}
+
+
 
 // function saveMemeToStorage() {
 //     saveToStorage(key, gMeme)

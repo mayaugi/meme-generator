@@ -1,6 +1,7 @@
 'use strict'
 
-var gLineId = 0
+var gLineId = 0;
+var gLineFocus = 1;
 
 function init() {
     gCanvas = document.getElementById('my-canvas')
@@ -29,27 +30,25 @@ function drawImg() {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
         drawText(gMeme.lines[gLineId].txt, 100, gMeme.lines[gLineId].lineHight, gMeme.lines[gLineId].size)
-        if(gMeme.selectedLineIdx === 1) {
-            drawText(gMeme.lines[gLineId-1].txt, 100, gMeme.lines[gLineId-1].lineHight, gMeme.lines[gLineId-1].size)
-        }
-        
     }
 }
 
 
 
-function drawText(text, x, y, fontSize=50) {
+function drawText() {
     console.log('in drawText')
-    gCtx.lineWidth = 1;
+    // gCtx.lineWidth = 1;
     gCtx.strokeStyle = 'black'
     gCtx.fillStyle = 'white'
-    gCtx.font = `${fontSize}px Impact`
+    gCtx.font = `${gMeme.lines[gLineId].size}px Impact`
     // gCtx.textAlign = 'center'
     var elColor = document.querySelector('input[name=prefColor]').value;
     gCtx.fillStyle = elColor
-    gCtx.fillText(text, x, gMeme.lines[gLineId].lineHight)
-    gCtx.strokeText(text, x, gMeme.lines[gLineId].lineHight)
-  
+
+    for (var i = 0; i < gMeme.lines.length ; i++) {
+        gCtx.fillText(gMeme.lines[i].txt, gMeme.lines[i].lineWidth, gMeme.lines[i].lineHight, gMeme.lines[i].size);
+        gCtx.strokeText(gMeme.lines[i].txt, gMeme.lines[i].lineWidth, gMeme.lines[i].lineHight, gMeme.lines[i].size);
+    }
 }
 
 
@@ -66,7 +65,7 @@ function changeSize(val) {
 
 
 function moveLines(val) {
-    if(val === "+") {
+    if(val === '+') {
         gMeme.lines[gLineId].lineHight -=10;
     }
     if(val==='-'){
@@ -77,22 +76,21 @@ function moveLines(val) {
 }
 
 
-function addLine(text, x, y, fontSize=70) {
+function addLine() {
     console.log('in addLine');
+    gMeme.lineCount += 1;
     gMeme.lines.push({
         txt: '',
-        size: 70, 
+        size: 50, 
         align: 'left',
         color: 'red',
-        lineHight: 200})
-        gCtx.fillText(gMeme.lines[gLineId].txt, 100, 200)
-        gCtx.strokeText(gMeme.lines[gLineId].txt, 100, 200)
+        lineWidth: 100,
+        lineHight: (gMeme.lineCount+1) * 120})
 
-    var addInput = `<input type="text" placeholder="Enter text" autocomplete="off" class="meme-text" id=${gMeme.lineCount+1} oninput="updateGmeme(this.value, 100, 200)" onfocus="updateId(this.id)">`
+    var addInput = `<input type="text" placeholder="Enter text" autocomplete="off" class="meme-text" id=${gMeme.lineCount} oninput="updateGmeme(this.value, 100, 200)" onfocus="updateId(this.id)">`
     document.querySelector('.control-box').innerHTML += addInput
     var elInput = document.querySelector('input[class=meme-text]')
     elInput.value = ''
-    gMeme.lineCount += 1;
     drawImg()
 }
 
@@ -107,6 +105,28 @@ function updateId (id) {
     gMeme.selectedLineIdx = id
     gLineId = gMeme.selectedLineIdx    
 }
+
+function updateGmeme(txt, x, y) {
+    console.log('in updateGmem')
+    console.log(gLineId)
+    gMeme.lines[parseInt(gLineId)].txt = txt;
+    drawText(gMeme.lines[gLineId].txt, x, y)
+    drawImg()
+}
+
+function swichLineFocus() {
+    if(gLineFocus <= gMeme.lineCount){
+        document.getElementById("0").focus()
+        gLineFocus +=1
+    } else {
+        document.getElementById("1").focus()
+        gLineFocus--
+
+    }
+    console.log('gLineFocus', gLineFocus);
+}
+
+
 
 
 function downloadCanvas(elLink) {
@@ -136,6 +156,3 @@ function movoToGallery() {
     document.querySelector('.main-content').style.display = 'block';
 }
 
-// function updateColor ('fill',this.value) {
-//     var elColor = document.querySelector('input[name=prefColor]').value;
-// }
