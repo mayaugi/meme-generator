@@ -86,7 +86,7 @@ function addLine(text, x, y, fontSize=70) {
         
     
     var addInput = `<input type="text" placeholder="Enter text" autocomplete="off" class="meme-text" id=${gMeme.lineCount+1} oninput="updateGmeme(this.value, 100, 200)" onfocus="updateId(this.id)">`
-    document.querySelector('.control-box').innerHTML += addInput
+    // document.querySelector('.control-box').innerHTML += addInput
     gMeme.lineCount += 1;
     drawImg()
 

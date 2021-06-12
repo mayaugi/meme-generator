@@ -6,22 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <title>Meme Generator</title>
 </head>
 
 <body onload="init()">
-    <header class="header main-layout">
+    <header class="header-container main-layout">
         <div class="main-header flex">
-        <div class="logo flex">memgen</div>
-        <ul class="main-nav clean-list flex">
-            <li><a class="Gallery" href="#">Gallery</a></li>
-            <li><a class="Memes" href="#">Memes</a></li>
-            <li><a class="Editor" href="#">About</a></li>
-        </ul>
-    </div>
+            <div class="logo flex">memgen</div>
+            <ul class="main-nav clean-list flex">
+                <li><a href="#" class="Gallery" href="#">Gallery</a></li>
+                <li><a class="Memes" href="#">Memes</a></li>
+                <li><a class="Editor" href="#">About</a></li>
+            </ul>
+        </div>
     </header>
 
     <div class="editor-bg main-layout">
@@ -31,13 +29,20 @@
             </div>
             <div class="control-box">
                 <input type="text" placeholder="Enter text" autocomplete="off" class="meme-text" id="0"
-                    oninput="updateGmeme(this.value, 100, 100)" onfocus="updateId(this.id)"> <br><br>
-                <button class="material-icons" class="decrease" onclick="changeSize('+')">format_size</button>
-                <button class="material-icons" class="increase" onclick="changeSize('-')">format_size</button>
-                <button class="material-icons" class="moveLineUp" onclick="moveLineUp()">north</button>
-                <button class="material-icons" class="moveLineDown" onclick="moveLineDown()">south</button>
-                <button class="material-icons" onclick="deleteLine()">delete</button>
-                <button class="material-icons" onclick="addLine(this.value, 100, 200)">add_box</button>
+                    oninput="updateGmeme(this.value, 100, 100)" onfocus="updateId(this.id)"><br><br>
+
+                <img onclick="moveLineDown()" src="img/ICONS/down-arrow.png">
+                <img onclick="moveLineUp()" src="img/ICONS/up-arrow.png">
+                <img onclick="addLine(this.value, 100, 200)" src="img/ICONS/add.png">
+                <img onclick="deleteLine()" src="img/ICONS/trash.png"> <br><br>
+                <img class="decrease" onclick="changeSize('+')" src="img/ICONS/increase font - icon.png">
+                <img onclick="changeSize('-')" src="img/ICONS/decrease font - icon.png">
+                <img onclick="" src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png">
+                <img src="img/ICONS/align-to-left.png">
+                <img src="img/ICONS/align-to-right.png">
+                <img src="img/ICONS/center-text-alignment.png">
+                <img src="img/ICONS/text stroke.png">
+                <img src="img/ICONS/paint-board-and-brush.png">
                 <form class="form flex">
                     <a class="download" onclick="downloadCanvas(this)" download="file-name">Download</a>
                     <a class="publish-btn" type="submit">Publish</a>
@@ -46,12 +51,6 @@
                 <!-- <button class="btn" type="submit">Publish</button> -->
 
 
-                <!-- <img src="img/ICONS/add.png">
-                <img src="img/ICONS/decrease font - icon.png">
-                <img src="img/ICONS/increase font - icon.png">
-                <img src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png">
-                <img src="img/ICONS/text stroke.png">
-                <img src="img/ICONS/trash.png"> -->
             </div>
         </div>
         <footer class="main-footer"></footer>
@@ -60,7 +59,7 @@
     <main class="main-content main-layout">
         <form class="search-area">
             <input type="text" placeholder="Enter search keyword" autocomplete="off" name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
+            <img src="img/ICONS/search-icon.png">
         </form>
         <main class="grid-container">
         </main>
@@ -68,15 +67,15 @@
 
         <footer class="main-footer">
             <div class="footer-container">
-            <div class="logo-footer">memegem</div>
-            <small>all rights reserved</small>
-        </div>
+                <div class="logo-footer">memegen</div>
+                <small>all rights reserved</small>
+            </div>
         </footer>
-   
 
-    <script src="js/main.js"></script>
-    <script src="js/service.js"></script>
-    <script src="js/storage-service.js"></script>
+
+        <script src="js/main.js"></script>
+        <script src="js/service.js"></script>
+        <script src="js/storage-service.js"></script>
 </body>
 
 </html>
