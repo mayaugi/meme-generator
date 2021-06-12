@@ -31,7 +31,7 @@ font-size: 1rem;
 body {
     margin: 0;
     background-color: rgb(247, 240, 232);
-    text-align: center;
+ 
 
 }
 
@@ -41,12 +41,19 @@ body {
 }
 
 
+.btn-menu {
+  display: none;
+}
+
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
 
 /* DESKTOP */
 
-/* .main-layout {
-
-} */
 
 
 .header-container {
@@ -72,10 +79,37 @@ body {
   justify-content: center;
   align-items: center;
   font-family: Montserrat-Regular, sans-serif;
-  font-size: 0.9rem;
-  gap: 5px;
+  font-size: 0.8rem;
+  /* gap: 8px; */
+  /* padding: 0.1rem; */
+ 
+  color: white;
 
 }
+
+.main-header .main-nav>*:not(:first-child) {
+  margin-left: 10px;
+}
+
+.main-header .main-nav >*:last-child {
+  margin-right: 38px;
+}
+
+
+.main-nav a:focus {
+  color: black;
+}
+
+
+.main-nav a:hover {
+  color: black;
+}
+
+
+.main-nav a:active {
+  color: black;
+}
+
   .main-header .logo {
     justify-content: flex-start;
     font-family: FredokaOne-Regular;
@@ -98,7 +132,7 @@ body {
     background-color: #ddd5dc;;
     font-size: 0.6em;
     border: none;
-    padding: 5px;
+    padding: 0.187rem 0px 0px 12.95rem;
   }
 
   .search-area > img {
@@ -159,6 +193,7 @@ body {
      object-fit: contain;
  }
       
+ 
 
 .canvas-container {
   width: 270.5px;
@@ -192,6 +227,7 @@ object-fit: contain;
   padding: 5px;
   border-radius: 9px;
 }
+
 
 .main {
   flex-direction: row;
@@ -272,6 +308,9 @@ object-fit: contain;
   padding: 16px 0px 0px 0px;
 }
 
+.search-area {
+  padding: 0.187rem 0px 0px 10.95rem;
+}
   }
 
 
@@ -299,5 +338,52 @@ object-fit: contain;
   max-width: fit-content;
 }
 
+.search-area {
+  padding: 0.187rem 0px 0px 4.95rem;
+}
+
+.main-nav {
+  position: fixed;
+  right: 0;
+  top: 0;
+  flex-direction: column;
+  height: 100vw;
+  border-inline-start: 1px solid rgb(8, 8, 8);
+  background-color:#a97139ab;
+  width: 200px;
+  transform: translateX(100%);
+  transition: transform 2s;
+}
+
+
+.btn-menu {
+  display: block;
+  cursor: pointer;
+}
+
+
+}
+
+/* SCREEN */
+
+.main-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsl(0deg 0% 50% / 73%);
+  cursor: pointer;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.main-screen.menu-open {
+  pointer-events: auto;
+  opacity: 0.6;
+}
+
+.main-nav.menu-open {
+  transform: translateX(0);
 }
 

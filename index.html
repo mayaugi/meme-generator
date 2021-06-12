@@ -11,14 +11,16 @@
 </head>
 
 <body onload="init()">
+    <div class="main-screen" onclick="toggleMenu()"></div>
     <header class="header-container main-layout">
         <div class="main-header flex">
             <div class="logo flex">memgen</div>
             <ul class="main-nav clean-list flex">
-                <li><a href="#" class="Gallery" href="#">Gallery</a></li>
+                <li><a onclick="movoToGallery()" class="Gallery" href="#">Gallery</a></li>
                 <li><a class="Memes" href="#">Memes</a></li>
                 <li><a class="Editor" href="#">About</a></li>
             </ul>
+            <button class="btn-menu" onclick="toggleMenu()">☰</button>
         </div>
     </header>
 
@@ -31,8 +33,8 @@
                 <input type="text" placeholder="Enter text" autocomplete="off" class="meme-text" id="0"
                     oninput="updateGmeme(this.value, 100, 100)" onfocus="updateId(this.id)"><br><br>
 
-                <img onclick="moveLineDown()" src="img/ICONS/down-arrow.png">
-                <img onclick="moveLineUp()" src="img/ICONS/up-arrow.png">
+                <img onclick="moveLines('-')" src="img/ICONS/down-arrow.png">
+                <img onclick="moveLines('+')" src="img/ICONS/up-arrow.png">
                 <img onclick="addLine(this.value, 100, 200)" src="img/ICONS/add.png">
                 <img onclick="deleteLine()" src="img/ICONS/trash.png"> <br><br>
                 <img class="decrease" onclick="changeSize('+')" src="img/ICONS/increase font - icon.png">
@@ -42,10 +44,15 @@
                 <img src="img/ICONS/align-to-right.png">
                 <img src="img/ICONS/center-text-alignment.png">
                 <img src="img/ICONS/text stroke.png">
-                <img src="img/ICONS/paint-board-and-brush.png">
+                <img oninput="updateColor('fill',this.value)" src="img/ICONS/paint-board-and-brush.png"><input type="color" id="color" name="prefColor" value="#ffb6c1" />
+                <!-- <div style="position:relative; display:inline-block icon">
+                    <button type="button" class="btn btn-secondary herramienta"><i class="material-icons"><img class="icon" src="img/ICONS/paint-board-and-brush.png"></img></i></button>
+                    <input type="color" value="#ff0000" oninput="updateColor('fill',this.value)" style="opacity:0; position:absolute; left:0;top:0;width:100% "/>
+                </div> -->
+
                 <form class="form flex">
                     <a class="download" onclick="downloadCanvas(this)" download="file-name">Download</a>
-                    <a class="publish-btn" type="submit">Publish</a>
+                    <!-- <a class="publish-btn" type="submit">Publish</a> -->
                 </form>
 
                 <!-- <button class="btn" type="submit">Publish</button> -->

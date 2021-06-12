@@ -1,3 +1,5 @@
+const KEY = 'meme'
+
 var gCanvas;
 var gCtx;
 var gKeywords = { 'happy': 1, 'funny': 1 }
@@ -36,37 +38,25 @@ function getImages() {
 }
 
 
-
 function getId(id) {
     gMeme.selectedImgId = id;
     openEditor()
     drawImg()
-
-
 }
 
+function updateGmeme(txt, x, y) {
+    console.log('in updateGmem')
+    gMeme.lines[gLineId].txt = txt;
+    drawText(gMeme.lines[gLineId].txt, x, y)
+    drawImg()
+}
 
 function openEditor() {
     document.querySelector('.canvas-container').style.display = 'block';
     document.querySelector('.editor-bg').style.display = 'block';
     document.querySelector('.main-content').style.display = 'none';
-
-
 }
 
-// function draw(ev) {
-//     var offsetX = ev.offsetX
-//     var offsetY = ev.offsetY
-
-//     if (gTouchEvs.includes(ev.type)) {
-//         ev.preventDefault()
-//         ev = ev.changedTouches[0]
-//         var pos = {
-//             x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
-//             y: ev.pageY - ev.target.offsetTop - ev.target.clientTop
-//         }
-//         offsetX = pos.x;
-//         offsetY = pos.y;
-//     }
-
+// function saveMemeToStorage() {
+//     saveToStorage(key, gMeme)
 // }
