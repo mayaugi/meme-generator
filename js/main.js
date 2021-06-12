@@ -29,7 +29,7 @@ function drawImg() {
     img.src = `${gImgs[gMeme.selectedImgId-1].url}`
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
-        drawText(gMeme.lines[gLineId].txt, 100, gMeme.lines[gLineId].lineHight, gMeme.lines[gLineId].size)
+        drawText(gMeme.lines[gLineId].txt, 100, gMeme.lines[gLineId].posY, gMeme.lines[gLineId].size)
     }
 }
 
@@ -37,19 +37,21 @@ function drawImg() {
 
 function drawText() {
     console.log('in drawText')
-    // gCtx.lineWidth = 1;
+    gCtx.lineWidth = 2;
     gCtx.strokeStyle = 'black'
     gCtx.fillStyle = 'white'
     gCtx.font = `${gMeme.lines[gLineId].size}px Impact`
-    // gCtx.textAlign = 'center'
+    gCtx.textAlign = 'left'
     var elColor = document.querySelector('input[name=prefColor]').value;
     gCtx.fillStyle = elColor
 
     for (var i = 0; i < gMeme.lines.length ; i++) {
-        gCtx.fillText(gMeme.lines[i].txt, gMeme.lines[i].lineWidth, gMeme.lines[i].lineHight, gMeme.lines[i].size);
-        gCtx.strokeText(gMeme.lines[i].txt, gMeme.lines[i].lineWidth, gMeme.lines[i].lineHight, gMeme.lines[i].size);
+        gCtx.fillText(gMeme.lines[i].txt, gMeme.lines[i].posX, gMeme.lines[i].posY);
+        gCtx.strokeText(gMeme.lines[i].txt, gMeme.lines[i].posX, gMeme.lines[i].posY);
     }
 }
+
+
 
 
 
@@ -66,10 +68,10 @@ function changeSize(val) {
 
 function moveLines(val) {
     if(val === '+') {
-        gMeme.lines[gLineId].lineHight -=10;
+        gMeme.lines[gLineId].posY -=10;
     }
     if(val==='-'){
-        gMeme.lines[gLineId].lineHight +=10;
+        gMeme.lines[gLineId].posY +=10;
     }
     drawImg()
 
@@ -84,8 +86,8 @@ function addLine() {
         size: 50, 
         align: 'left',
         color: 'red',
-        lineWidth: 100,
-        lineHight: (gMeme.lineCount+1) * 120})
+        posX: 60,
+        posY: (gMeme.lineCount+1) * 120})
 
     var addInput = `<input type="text" placeholder="Enter text" autocomplete="off" class="meme-text" id=${gMeme.lineCount} oninput="updateGmeme(this.value, 100, 200)" onfocus="updateId(this.id)">`
     document.querySelector('.control-box').innerHTML += addInput
@@ -98,6 +100,7 @@ function deleteLine() {
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height)
     drawImg()
     gMeme.lines[gLineId].txt = '';
+    
      
 }
 

@@ -26,8 +26,8 @@ var gMeme = {
         {
             txt: '',
             size: 50,
-            lineHight: 60,
-            lineWidth: 100,
+            posY: 60,
+            posX: 60,
             align: 'left',
             color: 'red',
         }
@@ -46,9 +46,6 @@ function getId(id) {
 }
 
 
-
-
-
-// function saveMemeToStorage() {
-//     saveToStorage(key, gMeme)
-// }
+function saveMemeToStorage() {
+    saveToStorage(key, gMeme)
+}
